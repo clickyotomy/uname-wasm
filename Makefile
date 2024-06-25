@@ -1,5 +1,5 @@
 SHELL        = /bin/bash
-VERSION      = v0.3
+VERSION      = v0.1
 PROG_NAME    = uname
 REGISTRY     = ghcr.io
 NAMESPACE    = clickyotomy

@@ -6,10 +6,9 @@ WORKDIR "/src"
 RUN make
 
 FROM scratch
-
-LABEL org.opencontainers.image.source=https://github.com/clickyotomy/uname-wasm
-LABEL org.opencontainers.image.description="Show system information."
-LABEL org.opencontainers.image.licenses=MIT
+LABEL org.opencontainers.image.source https://github.com/clickyotomy/uname-wasm
+LABEL org.opencontainers.image.description "Show system information."
+LABEL org.opencontainers.image.licenses MIT
 
 COPY --from="base" "/src/uname.wasm" "/uname.wasm"
 ENTRYPOINT [ "/uname.wasm" ]
