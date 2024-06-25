@@ -1,0 +1,7 @@
+uname-wasm
+----------
+
+This is a respository to test a Docker image which contains
+a WASM executable (built with LLVM and WASI) that displays
+the current runtime.
+
