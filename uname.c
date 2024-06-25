@@ -8,7 +8,7 @@ int info(struct utsname *buf) {
     if (uname(buf))
         return 1;
 
-    printf("runtime: %s/%s\n", buf->sysname, buf->machine);
+    printf("uname: %s/%s\n", buf->sysname, buf->machine);
     return 0;
 }
 

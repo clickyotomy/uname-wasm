@@ -3,5 +3,7 @@ uname-wasm
 
 This is a respository to test a Docker image which contains
 a WASM executable (built with LLVM and WASI) that displays
-the current runtime.
+the system information.
 
+To build and run the Docker image locally:
+    $ make run

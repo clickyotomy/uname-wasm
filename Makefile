@@ -23,12 +23,14 @@ default: $(PROG_NAME).wasm
 $(PROG_NAME).wasm: $(PROG_NAME).c
 	$(CC) $(CFLAGS) $(WASI_CFLAGS) -o $@ $<
 
-docker:
-	$(DOCKER) buildx build $(DOCKER_FLAGS) -t $(IMAGE) .
+publish: docker
 	$(DOCKER) push $(IMAGE)
 
 run: docker
 	$(DOCKER) run --runtime $(WASM_RUNTIME) --platform "wasi/wasm" --rm $(IMAGE)
+
+docker:
+	$(DOCKER) buildx build $(DOCKER_FLAGS) -t $(IMAGE) .
 
 format:
 	$(FMT) -i *.c
@@ -36,4 +38,4 @@ format:
 clean:
 	/bin/rm -rf *.wasm
 
-.PHONY: default docker run format clean
+.PHONY: default publish docker run format clean
